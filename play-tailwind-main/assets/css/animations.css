@@ -1,0 +1,240 @@
+@keyframes floatLens {
+  0% {
+    transform: translateY(0) translateX(0) translateZ(10px) rotate(0deg);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px) translateZ(20px) rotate(3deg);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  }
+  50% {
+    transform: translateY(-25px) translateX(5px) translateZ(30px) rotate(-2deg);
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.35));
+  }
+  75% {
+    transform: translateY(-10px) translateX(-5px) translateZ(20px) rotate(1deg);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  }
+  100% {
+    transform: translateY(0) translateX(0) translateZ(10px) rotate(0deg);
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.floating-lens {
+  position: absolute;
+  z-index: 2;
+  animation: floatLens 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.job-lens {
+  width: 160px;
+  height: auto;
+  top: 30%;
+  right: 8%;
+  animation-delay: 1s;
+}
+
+.cv-lens {
+  width: 180px;
+  height: auto;
+  bottom: 25%;
+  left: 10%;
+  animation-delay: 2.5s;
+}
+
+@media (max-width: 768px) {
+  .floating-lens {
+    width: 100px;
+  }
+  .job-lens {
+    top: 20%;
+    right: 5%;
+  }
+  .cv-lens {
+    bottom: 20%;
+    left: 5%;
+  }
+}
+
+/* Gradient Animations for Navbar */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-lens {
+  animation: float 4s ease-in-out infinite;
+}
+
+.job-lens {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  animation-delay: 0.5s;
+}
+
+.cv-lens {
+  position: absolute;
+  bottom: 20%;
+  left: 5%;
+  animation-delay: 1s;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Navigation Bar Effects */
+.ud-menu-scroll.active {
+  position: relative;
+  background: linear-gradient(to right, #4B0082, #8A2BE2);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s ease infinite;
+  font-weight: bold;
+}
+
+.ud-menu-scroll.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #4B0082, #8A2BE2);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+.ud-menu-scroll:hover {
+  background: linear-gradient(to right, #4B0082, #8A2BE2);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s ease infinite;
+  transition: all 0.3s ease;
+}
+
+/* Submenu hover effects */
+.submenu a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.submenu a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #4B0082, #8A2BE2);
+  transition: width 0.3s ease;
+}
+
+.submenu a:hover::before {
+  width: 100%;
+}
+
+.submenu a:hover {
+  transform: translateX(5px);
+  background: linear-gradient(to right, #4B0082, #8A2BE2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Button effects */
+.loginBtn, .signUpBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+.loginBtn::before, .signUpBtn::before {
+  display: none;
+}
+
+.loginBtn:hover::before, .signUpBtn:hover::before {
+  display: none;
+}
+
+.sticky .loginBtn:hover, .sticky .signUpBtn:hover {
+  background: linear-gradient(to right, #4B0082, #8A2BE2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+.loginBtn:hover, .signUpBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(138, 43, 226, 0.2);
+}
+
+/* Mobile menu animation */
+@media (max-width: 991px) {
+  .navbarTogglerActive > span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 7px;
+  }
+  
+  .navbarTogglerActive > span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbarTogglerActive > span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: -7px;
+  }
+  
+  #navbarCollapse {
+    animation: slideDown 0.3s ease-in-out forwards;
+  }
+  
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+} 

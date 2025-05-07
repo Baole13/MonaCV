@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      MonaCV
+    </title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/animations.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <!-- ==== WOW JS ==== -->
+    <script src="assets/js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+
+    <style>
+      .hero {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+        height: 100vh;
+        margin-top: -100px; 
+      }
+
+      .hero-image {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover; 
+        z-index: -1; 
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1; 
+      }
+
+      .hero-panel-left {
+        background-color: rgba(255, 255, 255, 0.8); 
+      }
+
+      .floating-lens.cv-lens {
+        transform: translateY(-35px);
+      }
+
+      .upload-cv-button {
+        background: rgba(255, 255, 255, 0.8);
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 45px;
+        text-decoration: none;
+        -webkit-text-fill-color: #4b0082;
+        transition: background 0.3s ease;
+      }
+
+      .upload-cv-button:hover {
+        -webkit-text-fill-color: #ffffff;
+        background: linear-gradient(to right, #4B0082, #8A2BE2);
+      }
+
+      .start-ai-interview-button {
+        background: rgba(255, 255, 255, 0.8);
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 45px;
+        text-decoration: none;
+        -webkit-text-fill-color: #4b0082;
+        transition: background 0.3s ease;
+        font-weight: bold;
+      }
+
+      .start-ai-interview-button:hover {
+        -webkit-text-fill-color: #ffffff;
+        background: linear-gradient(to right, #4B0082, #8A2BE2);
+      }
+
+      .hero-curve {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .ud-menu-scroll {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .ud-menu-scroll::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #4B0082, #8A2BE2, #9370DB);
+        background-size: 200% 200%;
+        transition: width 0.3s ease;
+        z-index: -1;
+      }
+
+      .ud-menu-scroll:hover::before {
+        width: 100%;
+        animation: gradientAnimation 3s ease infinite;
+      }
+
+      .ud-menu-scroll:hover {
+        color: white;
+        background: linear-gradient(to right, #4B0082, #8A2BE2);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientAnimation 3s ease infinite;
+      }
+
+      .submenu a {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .submenu a::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #4B0082, #8A2BE2);
+        transition: width 0.3s ease;
+      }
+
+      .submenu a:hover::before {
+        width: 100%;
+      }
+
+      .submenu a:hover {
+        background: linear-gradient(to right, #4B0082, #8A2BE2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(75, 0, 130, 0.1);
+        border-radius: 5px;
+      }
+      
+      /* Sign In/Sign Up Button Animations */
+      .loginBtn, .signUpBtn {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .loginBtn::before, .signUpBtn::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #4B0082, #8A2BE2);
+        z-index: -1;
+        transition: width 0.5s ease;
+      }
+      
+      .loginBtn:hover::before, .signUpBtn:hover::before {
+        width: 100%;
+      }
+      
+      .loginBtn:hover, .signUpBtn:hover {
+        /* Text color is now handled by the base class (text-purple-dark) */
+        transform: translateY(-2px); /* Keep the lift effect */
+        border: 2px solid white; /* Keep the white border for highlight */
+        color: #30114e; /* Explicitly set hover text color to dark purple */
+      }
+      
+      .signUpBtn:hover {
+        /* Removed gradient text effect and transparent text fill */
+        box-shadow: 0 5px 15px rgba(75, 0, 130, 0.3); /* Keep the shadow */
+        /* Border and text color are applied in the common rule above */
+      }
+      
+      /* Active Menu Item Highlight */
+      .ud-menu-scroll.active {
+        position: relative;
+        background: linear-gradient(to right, #4B0082, #8A2BE2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+      }
+      
+      .ud-menu-scroll.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #4B0082, #8A2BE2, #9370DB);
+        background-size: 200% 200%;
+        animation: gradientAnimation 3s ease infinite;
+        border-radius: 3px;
+      }
+      
+      /* Mobile Menu Animation */
+      @media (max-width: 960px) {
+        #navbarCollapse {
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(10px);
+          border-radius: 10px;
+          border: 1px solid rgba(138, 43, 226, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          animation: slideDown 0.3s ease forwards;
+        }
+        
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .ud-menu-scroll {
+          border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+          margin-bottom: 5px;
+        }
+        
+        .ud-menu-scroll:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+        }
+      }
+
+      .font-baloo {
+        font-family: 'Baloo 2', sans-serif;
+        font-size: 1.125rem; /* 18px */
+      }
+
+      /* Override font-baloo for the Personalized Job Matching section */
+      #testimonials {
+        font-family: inherit;
+      }
+
+      /* Ensure only the title in Personalized Job Matching has Baloo font */
+      #testimonials .font-semibold {
+        font-family: 'Baloo 2', sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="font-baloo">
+    <!-- ====== Navbar Section Start -->
+    <div
+      class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-transparent"
+    >
+      <div class="container">
+        <div class="relative -mx-4 flex items-center justify-between">
+          <div class="w-60 max-w-full px-4">
+            <a href="index.html" class="navbar-logo block w-full py-5">
+              <img
+                src="assets/images/logo/logo.svg"
+                alt="logo"
+                class="header-logo w-full"
+              />
+            </a>
+          </div>
+          <div class="flex w-full items-center justify-between px-4">
+            <div>
+              <button
+                id="navbarToggler"
+                class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
+              >
+                <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-purple-dark"
+                ></span>
+                <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-purple-dark"
+                ></span>
+                <span
+                  class="relative my-[6px] block h-[2px] w-[30px] bg-purple-dark"
+                ></span>
+              </button>
+              <nav
+                id="navbarCollapse"
+                class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg dark:bg-dark-2 lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:px-4 lg:py-0 lg:shadow-none dark:lg:bg-transparent xl:px-6"
+              >
+                <ul class="blcok lg:flex 2xl:ml-20">
+                  <li class="group relative">
+                    <a
+                      href="#home"
+                      class="ud-menu-scroll mx-8 flex py-2 text-base font-bold text-dark group-hover:text-primary dark:text-white lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-purple-dark lg:group-hover:text-purple-dark lg:group-hover:opacity-70"
+                    >
+                      Home
+                    </a>
+                  </li>
+                  <li class="group relative">
+                    <a
+                      href="#about"
+                      class="ud-menu-scroll mx-8 flex py-2 text-base font-bold text-dark group-hover:text-primary dark:text-white lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:text-purple-dark lg:group-hover:text-purple-dark lg:group-hover:opacity-70 xl:ml-10"
+                    >
+                      About Us
+                    </a>
+                  </li>
+                  <!-- CV Tools -->
+                  <li class="submenu-item group relative">
+                    <a
+                      href="javascript:void(0)"
+                      class="ud-menu-scroll relative mx-8 flex items-center justify-between py-2 text-base font-bold text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-purple-dark lg:group-hover:text-purple-dark lg:group-hover:opacity-70 xl:ml-10"
+                    >
+                      CV Tools
+
+                      <svg
+                        class="ml-2 fill-current"
+                        width="16"
+                        height="20"
+                        viewBox="0 0 16 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z"
+                        />
+                      </svg>
+                    </a>
+                    <div
+                      class="submenu relative left-0 top-full hidden w-[250px] rounded-xl bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full"
+                    >
+                      <a
+                        href="about.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Resume Analysis
+                      </a>
+                      <a
+                        href="pricing.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Virtual Interview
+                      </a>
+                      <a
+                        href="contact.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Job Matching
+                      </a>
+                      <a
+                        href="blog-grids.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Career Tips
+                      </a>
+
+                    </div>
+                  </li>
+                  <!-- Job hub -->
+                  <li class="submenu-item group relative">
+                    <a
+                      href="javascript:void(0)"
+                      class="ud-menu-scroll relative mx-8 flex items-center justify-between py-2 text-base font-bold text-dark group-hover:text-primary dark:text-white lg:ml-8 lg:mr-0 lg:inline-flex lg:py-6 lg:pl-0 lg:pr-4 lg:text-purple-dark lg:group-hover:text-purple-dark lg:group-hover:opacity-70 xl:ml-10"
+                    >
+                      Job Hub
+
+                      <svg
+                        class="ml-2 fill-current"
+                        width="16"
+                        height="20"
+                        viewBox="0 0 16 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.99999 14.9C7.84999 14.9 7.72499 14.85 7.59999 14.75L1.84999 9.10005C1.62499 8.87505 1.62499 8.52505 1.84999 8.30005C2.07499 8.07505 2.42499 8.07505 2.64999 8.30005L7.99999 13.525L13.35 8.25005C13.575 8.02505 13.925 8.02505 14.15 8.25005C14.375 8.47505 14.375 8.82505 14.15 9.05005L8.39999 14.7C8.27499 14.825 8.14999 14.9 7.99999 14.9Z"
+                        />
+                      </svg>
+                    </a>
+                    <div
+                      class="submenu relative left-0 top-full hidden w-[250px] rounded-xl bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full"
+                    >
+                      <a
+                        href="about.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        About Page
+                      </a>
+                      <a
+                        href="pricing.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Pricing Page
+                      </a>
+                      <a
+                        href="contact.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Contact Page
+                      </a>
+                      <a
+                        href="blog-grids.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Blog Grid Page
+                      </a>
+                      <a
+                        href="blog-details.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Blog Details Page
+                      </a>
+                      <a
+                        href="signup.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Sign Up Page
+                      </a>
+                      <a
+                        href="signin.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        Sign In Page
+                      </a>
+                      <a
+                        href="404.html"
+                        class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                      >
+                        404 Page
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="flex items-center justify-end pr-16 lg:pr-0">
+              <a
+                href="signin.html"
+                class="loginBtn rounded-full bg-purple-dark px-6 py-3 font-bold text-purple-dark hover:bg-purple-dark/80 mr-2 font-baloo"
+              >
+                Sign In
+              </a>
+              <a
+                href="signup.html"
+                class="signUpBtn rounded-full bg-purple-dark px-6 py-3 font-bold text-purple-dark hover:bg-purple-dark/80 font-baloo"
+              >
+                Sign Up
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ====== Navbar Section End -->
+
+    <!-- ====== Hero Section Start -->
+    <div
+      id="home"
+      class="relative overflow-hidden bg-primary pt-[120px] md:pt-[130px] lg:pt-[160px]"
+    >
+      <div class="container">
+        <div class="hero">
+          <img src="assets/images/hero/hero-image.png" alt="Hero Image" class="hero-image" />
+          <div class="hero-content">
+            <div
+              class="hero-content wow fadeInUp mx-auto max-w-[780px] text-center"
+              data-wow-delay=".2s"
+            >
+              <h1
+                class="mb-6 text-3xl font-bold leading-snug text-purple-dark sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]"
+              >
+              Empower Your Career 
+              with AI-Powered Insights
+              </h1>
+              <p
+                class="mx-auto mb-9 max-w-[600px] text-base font-medium text-purple-dark sm:text-lg sm:leading-[1.44]"
+              >
+              From CV analysis to AI interviews – Your smart job assistant for a better career path.
+              </p>
+              <ul
+                class="mb-10 flex flex-wrap items-center justify-center gap-5"
+              >
+                <li>
+                  <a
+                    href="https://links.tailgrids.com/play-download"
+                    class="upload-cv-button font-baloo"
+                  >
+                    Upload Your CV
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/tailgrids/play-tailwind"
+                    target="_blank"
+                    class="flex items-center gap-4 rounded-md bg-white/[0.12] px-6 py-[14px] font-bold text-white transition duration-300 ease-in-out hover:bg-white hover:text-dark start-ai-interview-button font-baloo"
+                  >
+                    Start AI Interview
+                  </a>
+                </li>
+              </ul>
+              <div>
+                
+                <div
+                  class="wow fadeInUp flex items-center justify-center gap-4 text-center"
+                  data-wow-delay=".3s"
+                >
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full px-4">
+            <div
+              class="wow fadeInUp relative z-10 mx-auto max-w-[845px]"
+              data-wow-delay=".25s"
+            >
+              <div class="hero">
+                <img
+                  src="assets/images/hero/hero-image.png"
+                  alt="hero"
+                  class="hero-image mx-auto max-w-full rounded-t-xl rounded-tr-xl"
+                />
+                <!-- JobLens floating image -->
+                <img 
+                  src="assets/images/hero/JobLens.png" 
+                  alt="JobLens" 
+                  class="floating-lens job-lens"
+                />
+                <!-- CVLens floating image -->
+                <img 
+                  src="assets/images/hero/CVLens.png" 
+                  alt="CVLens" 
+                  class="floating-lens cv-lens"
+                />
+                <div class="hero-content">
+                  <!-- Add any content you want to overlay on the image here -->
+                </div>
+                <img
+                  src="assets/images/hero/Hero-Curve.png"
+                  alt="hero curve"
+                  class="hero-curve w-full"
+                  style="position: absolute; bottom: -51px; left: 0; z-index: -1;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Hero Curve positioned at the bottom of hero section covering full width -->
+      <img
+        src="assets/images/hero/Hero-Curve.png"
+        alt="hero curve"
+        class="hero-curve"
+        style="position: absolute; bottom: -2px; left: 0; z-index: 1; width: 100%;"
+      />
+    </div>
+  </div>
+</div>
+                  <circle
+                    cx="31"
+                    cy="31.0003"
+                    r="1.66667"
+                    transform="rotate(-90 31 31.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="31.0003"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 31.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 103 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 103 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 132 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 132 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 31 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 31 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 103 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 103 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 132 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 132 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 31 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 31 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 103 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 103 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 132 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 132 1.66707)"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+              <div class="absolute -right-6 -top-6 z-[-1]">
+                <svg
+                  width="134"
+                  height="106"
+                  viewBox="0 0 134 106"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="1.66667"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 31 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 103 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="104"
+                    r="1.66667"
+                    transform="rotate(-90 132 104)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="89.3333"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 89.3333)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="89.3333"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 89.3333)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="89.3333"
+                    r="1.66667"
+                    transform="rotate(-90 31 89.3333)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="89.3333"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 89.3333)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="89.3338"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 89.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="89.3338"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 89.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="89.3338"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 89.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="89.3338"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 89.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="89.3338"
+                    r="1.66667"
+                    transform="rotate(-90 103 89.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="89.3338"
+                    r="1.66667"
+                    transform="rotate(-90 132 89.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="74.6673"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 74.6673)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="31.0003"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 31.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="31.0003"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 31.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 31 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="31.0003"
+                    r="1.66667"
+                    transform="rotate(-90 31 31.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="31.0003"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 31.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 103 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 103 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="74.6668"
+                    r="1.66667"
+                    transform="rotate(-90 132 74.6668)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="31.0001"
+                    r="1.66667"
+                    transform="rotate(-90 132 31.0001)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 31 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 31 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 103 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 103 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="60.0003"
+                    r="1.66667"
+                    transform="rotate(-90 132 60.0003)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="16.3336"
+                    r="1.66667"
+                    transform="rotate(-90 132 16.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="1.66667"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 1.66667 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="16.3333"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 16.3333 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 31 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="31"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 31 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="45.3336"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 45.3336)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="45.6667"
+                    cy="1.66683"
+                    r="1.66667"
+                    transform="rotate(-90 45.6667 1.66683)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="60.3333"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 60.3333 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="88.6667"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 88.6667 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="117.667"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 117.667 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="74.6667"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 74.6667 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 103 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="103"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 103 1.66707)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="45.3338"
+                    r="1.66667"
+                    transform="rotate(-90 132 45.3338)"
+                    fill="white"
+                  />
+                  <circle
+                    cx="132"
+                    cy="1.66707"
+                    r="1.66667"
+                    transform="rotate(-90 132 1.66707)"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Hero Section End -->
+
+    <!-- ====== Features Section Start -->
+    <section id="features" class="py-20 lg:py-[120px] font-baloo">
+      <div class="container mx-auto">
+        <div class="wow fadeInUp mx-auto mb-[60px] max-w-[510px] text-center" data-wow-delay=".1s">
+          <span class="mb-2 block text-lg font-semibold text-primary">
+            Our Key Features
+          </span>
+          <h2
+            class="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]"
+          >
+            Unlock Your Potential
+          </h2>
+          <p class="text-base text-body-color dark:text-dark-6">
+            Leverage AI to navigate your career path with confidence. Explore the tools designed to help you succeed.
+          </p>
+        </div>
+        <div class="-mx-4 flex flex-wrap">
+          <!-- Feature 1: AI-Powered CV Analysis -->
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+            <div
+              class="wow fadeInUp group mb-12 text-center"
+              data-wow-delay=".15s"
+            >
+              <div
+                class="relative z-10 mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-full transition-all duration-300"
+              >
+                 <i class="fas fa-magnifying-glass-chart fa-3x text-purple-dark"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-dark dark:text-white">
+                AI-Powered CV Analysis
+              </h3>
+              <p class="mb-8 text-base text-body-color dark:text-dark-6 lg:mb-11">
+                Upload your resume for instant, AI-driven feedback to highlight strengths and identify areas for improvement.
+              </p>
+              <a
+                href="javascript:void(0)"
+                class="text-base font-medium text-body-color hover:text-primary dark:text-dark-6"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+          <!-- Feature 2: Virtual AI Interview Practice -->
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+            <div
+              class="wow fadeInUp group mb-12 text-center"
+              data-wow-delay=".2s"
+            >
+              <div
+                 class="relative z-10 mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-full transition-all duration-300"
+              >
+                <i class="fas fa-microphone-lines fa-3x text-purple-dark"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-dark dark:text-white">
+                Virtual AI Interview Practice
+              </h3>
+              <p class="mb-8 text-base text-body-color dark:text-dark-6 lg:mb-11">
+                Hone your interview skills with realistic AI-powered mock interviews tailored to your target roles.
+              </p>
+              <a
+                href="javascript:void(0)"
+                class="text-base font-medium text-body-color hover:text-primary dark:text-dark-6"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+          <!-- Feature 3: Personalized Job Matching -->
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+            <div
+              class="wow fadeInUp group mb-12 text-center"
+              data-wow-delay=".25s"
+            >
+              <div
+                class="relative z-10 mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-full transition-all duration-300"
+              >
+                <i class="fas fa-briefcase fa-3x text-purple-dark"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-dark dark:text-white">
+                Personalized Job Matching
+              </h3>
+              <p class="mb-8 text-base text-body-color dark:text-dark-6 lg:mb-11">
+                Our intelligent system analyzes your profile to connect you with job opportunities that truly fit your goals.
+              </p>
+              <a
+                href="javascript:void(0)"
+                class="text-base font-medium text-body-color hover:text-primary dark:text-dark-6"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+          <!-- Feature 4: Career Path Recommendations -->
+          <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+            <div
+              class="wow fadeInUp group mb-12 text-center"
+              data-wow-delay=".3s"
+            >
+              <div
+                class="relative z-10 mx-auto mb-8 flex h-[100px] w-[100px] items-center justify-center rounded-full transition-all duration-300"
+              >
+                <i class="fas fa-route fa-3x text-purple-dark"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold text-dark dark:text-white">
+                Career Path Recommendations
+              </h3>
+              <p class="mb-8 text-base text-body-color dark:text-dark-6 lg:mb-11">
+                Discover potential career trajectories based on your skills and experience, guided by AI insights.
+              </p>
+              <a
+                href="javascript:void(0)"
+                class="text-base font-medium text-body-color hover:text-primary dark:text-dark-6"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Features Section End -->
+
+
+    <!-- ====== About Section Start -->
+    <section
+      id="about"
+      class="bg-gray-1 pb-8 pt-20 dark:bg-dark-2 lg:pb-[70px] lg:pt-[120px]"
+    >
+      <div class="container">
+        <div class="wow fadeInUp" data-wow-delay=".2s">
+          <div class="-mx-4 flex flex-wrap items-center">
+            <div class="w-full px-4 lg:w-1/2">
+              <div class="mb-12 max-w-[540px] lg:mb-0">
+                <h2
+                  class="mb-5 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-[40px] sm:leading-[1.2]"
+                >
+                  AI CV Insight
+                </h2>
+                <p
+                  class="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6"
+                >
+                  Land your dream job. Let AI refine your CV and spotlight your strengths! Optimize your CV with AI-driven recommendations.
+                </p>
+
+                <a
+                  href="javascript:void(0)"
+                  style="display: inline-block; padding: 16px 50px; background: linear-gradient(to right, #7c3aed, #4B0082); color: white; font-size: 20px; font-weight: 700; border-radius: 50px; box-shadow: 0 10px 15px rgba(75, 0, 130, 0.3); transition: all 0.3s ease; text-align: center;"
+                  onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 20px rgba(75, 0, 130, 0.4)';"
+                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 15px rgba(75, 0, 130, 0.3)';"
+                  class="font-baloo"
+                >
+                  Upload Your CV
+                </a>
+              </div>
+            </div>
+
+            <div class="w-full px-4 lg:w-1/2">
+              <div class="-mx-2 flex flex-wrap sm:-mx-4 lg:-mx-2 xl:-mx-4">
+                <div class="w-full px-2 sm:px-4 lg:px-2 xl:px-4">
+                  <div class="mb-4">
+                    <img
+                      src="./assets/images/CV Pic.png"
+                      alt="CV analysis illustration"
+                      class="h-auto mx-auto" 
+                      style="max-width: 450px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== About Section End -->
+
+      <!-- ====== AI Interview Section Start -->
+      <section class="py-20 lg:py-[120px] bg-white dark:bg-dark-2">
+        <div class="container mx-auto">
+          <div class="wow fadeInUp mx-auto text-center" data-wow-delay=".1s">
+            <div class="flex justify-center">
+              <img 
+                src="./assets/images/AI Interview.png" 
+                alt="AI Interview" 
+                class="h-auto rounded-lg mx-auto"
+                style="max-width: 1000px;"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ====== AI Interview Section End -->
+
+    <!-- ====== Testimonial Section Start -->
+    <section
+      id="testimonials"
+      class="overflow-hidden bg-gray-1 py-20 dark:bg-dark-2 md:py-[120px]"
+    >
+      <div class="container mx-auto">
+        <div class="-mx-4 flex flex-wrap justify-center">
+          <div class="w-full px-4">
+            <div class="mx-auto mb-[60px] max-w-[485px] text-center">
+              <span class="mb-2 block text-lg font-semibold text-primary font-baloo">
+                Personalized Job Matching
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap;">
+          <!-- Job Categories Column -->
+          <div style="width: 100%; max-width: 250px; padding-right: 30px;">
+            <!-- Job Categories -->
+            <div>
+              <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                <span style="font-size: 18px; font-weight: 700; color: #333;">Product Management</span>
+                <span style="display: inline-flex; justify-content: center; align-items: center; background-color: #7970DD; color: white; margin-left: 10px; min-width: 28px; height: 28px; border-radius: 6px; font-size: 14px; font-weight: 500; padding: 0 8px;">34</span>
+              </div>
+              
+              <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                <span style="font-size: 18px; font-weight: 700; color: #7970DD;">Development</span>
+                <span style="display: inline-flex; justify-content: center; align-items: center; background-color: #7970DD; color: white; margin-left: 10px; min-width: 28px; height: 28px; border-radius: 6px; font-size: 14px; font-weight: 500; padding: 0 8px;">92</span>
+              </div>
+              
+              <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                <span style="font-size: 18px; font-weight: 700; color: #333;">Design</span>
+                <span style="display: inline-flex; justify-content: center; align-items: center; background-color: #C4B0D8; color: white; margin-left: 10px; min-width: 28px; height: 28px; border-radius: 6px; font-size: 14px; font-weight: 500; padding: 0 8px;">104</span>
+              </div>
+              
+              <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                <span style="font-size: 18px; font-weight: 700; color: #333;">Marketing</span>
+                <span style="display: inline-flex; justify-content: center; align-items: center; background-color: #C4B0D8; color: white; margin-left: 10px; min-width: 28px; height: 28px; border-radius: 6px; font-size: 14px; font-weight: 500; padding: 0 8px;">89</span>
+              </div>
+              
+              <div style="display: flex; align-items: center; margin-bottom: 40px;">
+                <span style="font-size: 18px; font-weight: 700; color: #333;">Customer Service</span>
+                <span style="display: inline-flex; justify-content: center; align-items: center; background-color: #C4B0D8; color: white; margin-left: 10px; min-width: 28px; height: 28px; border-radius: 6px; font-size: 14px; font-weight: 500; padding: 0 8px;">54</span>
+              </div>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div style="display: flex; margin-top: 15px;">
+              <button style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid #7970DD; color: #7970DD; display: flex; align-items: center; justify-content: center; margin-right: 10px; transition: all 0.3s ease;" class="font-baloo">
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button style="width: 40px; height: 40px; border-radius: 50%; background-color: #7970DD; color: white; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" class="font-baloo">
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Job Cards -->
+          <div style="flex: 1; display: flex; flex-wrap: wrap; gap: 20px;">
+            <!-- Game Developer Card -->
+            <div style="width: calc(33.33% - 14px); margin-bottom: 20px;">
+              <div style="background: linear-gradient(140deg, #C4B0D8, #7970DD); color: white; border-radius: 16px; padding: 25px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; gap: 18px;">
+                <div>
+                  <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 10px 0; line-height: 1.2;">Game Developer</h2>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span style="background-color: #33144A; padding: 6px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 500; white-space: nowrap;">Full Time</span>
+                    <span style="background-color: #33144A; padding: 6px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 500; white-space: nowrap;">Game</span>
+                  </div>
+                </div>
+                
+                <div style="font-size: 22px; font-weight: 600;">34K$ - 45K$</div>
+                
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <hr style="flex-grow: 1; height: 1px; border: none; background-color: rgba(255, 255, 255, 0.4);">
+                  <span style="font-size: 0.85em; color: rgba(255, 255, 255, 0.85); white-space: nowrap;">1hour ago</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="background-color: white; width: 48px; height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <span style="color: #33144A; font-weight: bold; font-size: 1.1em;">VNG</span>
+                    </div>
+                    <div>
+                      <h3 style="font-size: 1em; font-weight: 600; margin: 0;">VNG</h3>
+                      <p style="font-size: 0.85em; color: rgba(255, 255, 255, 0.85); margin: 2px 0 0 0;">1200-3000</p>
+                    </div>
+                  </div>
+                  <div>
+                    <span style="background-color: rgba(255, 255, 255, 0.8); color: #6a1b9a; padding: 7px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 600;">20 Jobs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Senior Developer Card -->
+            <div style="width: calc(33.33% - 14px); margin-bottom: 20px;">
+              <div style="background: #f0f4f9; color: #333; border-radius: 16px; padding: 25px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; gap: 18px;">
+                <div>
+                  <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 10px 0; line-height: 1.2;">Senior Developer</h2>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span style="background-color: white; color: #333; padding: 6px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 500; white-space: nowrap;">Full Time</span>
+                    <span style="background-color: white; color: #333; padding: 6px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 500; white-space: nowrap;">Full-Stack</span>
+                  </div>
+                </div>
+                
+                <div style="font-size: 22px; font-weight: 600;">25K$ - 45K$</div>
+                
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <hr style="flex-grow: 1; height: 1px; border: none; background-color: rgba(0, 0, 0, 0.1);">
+                  <span style="font-size: 0.85em; color: rgba(0, 0, 0, 0.6); white-space: nowrap;">4hour ago</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="background-color: white; width: 48px; height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <span style="color: #33144A; font-weight: bold; font-size: 1.1em;">FPT</span>
+                    </div>
+                    <div>
+                      <h3 style="font-size: 1em; font-weight: 600; margin: 0;">FPT</h3>
+                      <p style="font-size: 0.85em; color: rgba(0, 0, 0, 0.6); margin: 2px 0 0 0;">140-300</p>
+                    </div>
+                  </div>
+                  <div>
+                    <span style="background-color: rgba(0, 0, 0, 0.1); color: #333; padding: 7px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 600;">40 Jobs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Software Engineer Card -->
+            <div style="width: calc(33.33% - 14px); margin-bottom: 20px;">
+              <div style="background: #f0f4f9; color: #333; border-radius: 16px; padding: 25px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; gap: 18px;">
+                <div>
+                  <h2 style="font-size: 24px; font-weight: 600; margin: 0 0 10px 0; line-height: 1.2;">Software Engineer</h2>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span style="background-color: white; color: #333; padding: 6px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 500; white-space: nowrap;">Full Time</span>
+                    <span style="background-color: white; color: #333; padding: 6px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 500; white-space: nowrap;">Software</span>
+                  </div>
+                </div>
+                
+                <div style="font-size: 22px; font-weight: 600;">25K$ - 45K$</div>
+                
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <hr style="flex-grow: 1; height: 1px; border: none; background-color: rgba(0, 0, 0, 0.1);">
+                  <span style="font-size: 0.85em; color: rgba(0, 0, 0, 0.6); white-space: nowrap;">8hour ago</span>
+                </div>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="background-color: white; width: 48px; height: 48px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <span style="color: #33144A; font-weight: bold; font-size: 1.1em;">Shopee</span>
+                    </div>
+                    <div>
+                      <h3 style="font-size: 1em; font-weight: 600; margin: 0;">Shopee</h3>
+                      <p style="font-size: 0.85em; color: rgba(0, 0, 0, 0.6); margin: 2px 0 0 0;">6200-4000</p>
+                    </div>
+                  </div>
+                  <div>
+                    <span style="background-color: rgba(0, 0, 0, 0.1); color: #333; padding: 7px 14px; border-radius: 15px; font-size: 0.8em; font-weight: 600;">75 Jobs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Testimonial Section End -->
+
+    <!-- ====== Learning Section Start -->
+    <section class="bg-gray-1 py-16 dark:bg-dark-2 md:py-20 lg:py-28">
+      <div class="container mx-auto">
+        <div class="-mx-4 flex flex-wrap items-center">
+          <div class="w-full px-4 lg:w-1/2">
+            <div class="wow fadeInLeft mb-12 max-w-[500px] lg:mb-0" data-wow-delay=".15s">
+              <img src="assets/images/Learning.png" alt="Learning Illustration" class="w-full" />
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2">
+            <div class="wow fadeInRight text-center lg:text-left" data-wow-delay=".2s">
+              <!-- Optional: Add title and text here if needed -->
+              <!-- 
+              <h2 class="mb-6 text-3xl font-bold leading-tight text-dark dark:text-white sm:text-4xl sm:leading-tight md:text-[45px] lg:text-[50px]">
+                Explore Our Resources
+              </h2>
+              <p class="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
+                Dive deeper into our learning materials and tools.
+              </p> 
+              -->
+              <a
+                href="javascript:void(0)"
+                style="display: inline-block; padding: 16px 50px; background: linear-gradient(to right, #9f7aea, #7c3aed); color: white; font-weight: 700; border-radius: 50px; box-shadow: 0 10px 15px rgba(124, 58, 237, 0.3); transition: all 0.3s ease;"
+                onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 20px rgba(124, 58, 237, 0.4)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 15px rgba(124, 58, 237, 0.3)';"
+                class="font-baloo"
+              >
+                Explore Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Learning Section End -->
+
+
+    <!-- ====== Back To Top Start -->
+    <a
+      href="javascript:void(0)"
+      class="back-to-top fixed bottom-8 left-auto right-8 z-[999] hidden h-10 w-10 items-center justify-center rounded-md bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-dark font-baloo"
+    >
+      <span
+        class="mt-[6px] h-3 w-3 rotate-45 border-l border-t border-white"
+      ></span>
+    </a>
+    <!-- ====== Back To Top End -->
+
+    <!-- ====== All Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+      new Swiper(".testimonial-carousel", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".testimonial-carousel-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          992: {
+            slidesPerView: 3,
+          },
+        },
+      });</script>
+  
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder" class="mt-[40px]"></div>
+
+    <!-- Load components -->
+
+    <script src="load-footer.js"></script>
+  </body>
+</html>
+
