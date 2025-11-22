@@ -1,4 +1,5 @@
 # MonaCV – AI-powered Career Assistant Website
+<img width="1920" height="1080" alt="Slides  P-Innovation  MindBenders" src="https://github.com/user-attachments/assets/4f5c66e7-1637-43a3-8df9-1d788341fc90" />
 
 **MonaCV** is an AI-driven web platform designed to help users analyze, improve, and optimize their CVs.  
 The system evaluates user resumes, identifies missing skills, and suggests development paths based on AI insights.  
